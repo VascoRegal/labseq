@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>LabSeq Calculator</h1>
+    
+    <form (ngSubmit)="calculateResult()">
+        <div class="form-group">
+            <input class="form-control" type="number" id="n" name="n" [(ngModel)]="n" min="0" required placeholder="Enter value of n...">
+            <div *ngIf="n != null && n < 0" class="text-danger">
+                n must be a positive integer.
+            </div>
+        </div>
+        <button [disabled]="n === null || n < 0" type="submit" class="btn btn-primary">Calculate</button>
+    </form>
+    
+    <div class="result">
+      <p *ngFor="let r of resultsList">
+        l({{ r.n }}) = {{ r.result }}   (took {{r.executionTime }} ns) <br>
+      </p>
+    </div>
+</div>
+  
