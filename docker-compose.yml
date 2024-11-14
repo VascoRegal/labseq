@@ -1,0 +1,13 @@
+services:
+  labseq-app:
+    build:
+      context: ./ui/labseq-app 
+    ports:
+      - 4200:80
+
+  labseq-api:
+    build: 
+      context: api
+      dockerfile: ./src/main/docker/Dockerfile.jvm
+    ports:
+      - 8080:8080
